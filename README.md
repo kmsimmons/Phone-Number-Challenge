@@ -1,4 +1,4 @@
-Sent to me from a friend:
+This idea was sent to me from a friend as a little challenge:
 
 "As a user, I have an input field for a phone number. As I type in a number the input field formats my number as I type. The resulting input field shows (555)555-5555 (the function added the parentheses and dash for me as I typed, NOT after submitting).
 Build out a function that will allow create this functionality to improve UX on this form. Feel free to assume that the input field is using an onChange with an Event object (React).
