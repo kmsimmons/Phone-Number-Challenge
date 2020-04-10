@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      number: '',
+      regexp: /^[0-9\b]+$/
+    }
+    this.onNumberChange = this.onNumberChange.bind(this)
+  }
+
+  onNumberChange = e => {
+    let number = e.target.value
+
+    if(number === '' || this.state.regexp.test(number)) {
+      this.setState({ [e.target.name]: number})
+    }
+  }
+
+  render() {
+     return (
+      <div className='App'>
+        <h1>Please Enter Your Phone Number</h1>
+        <input
+          type='tel'
+          name='number'
+          placeholder='(555)555-5555'
+          value={this.state.number}
+          onChange={this.onNumberChange}>
+        </input>
+        <button>
+          Submit
+        </button>
+      </div>
+    )
+  }
 }
 
 export default App;
